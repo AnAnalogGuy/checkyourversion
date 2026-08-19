@@ -1,20 +1,25 @@
 <?php
 /**
  * Configuration file for CheckYourVersion
+ * 
+ * API Documentation:
+ * - endoflife.date: https://endoflife.date/docs/api/v1/
+ * - NVD: https://nvd.nist.gov/developers/vulnerabilities
  */
 
 // API Endpoints
-define('ENDOFLIFE_API', 'https://endoflife.date/api/v1');
-define('NVD_API', 'https://services.nvd.nist.gov/rest/json/cves/2.0');
+define('ENDOFLIFE_API_BASE', 'https://endoflife.date/api/v1');
+define('ENDOFLIFE_PRODUCTS_ENDPOINT', ENDOFLIFE_API_BASE . '/products');
+define('ENDOFLIFE_PRODUCT_ENDPOINT', ENDOFLIFE_API_BASE . '/products');
 
-// CVE.org alternative (if needed)
-define('CVE_ORG_API', 'https://www.cve.org/api/');
+// NVD API v2.0
+define('NVD_API', 'https://services.nvd.nist.gov/rest/json/cves/2.0');
 
 // API Keys (if needed)
 define('NVD_API_KEY', ''); // Add your NVD API key if available
 
 // Timeout for API calls (in seconds)
-define('API_TIMEOUT', 10);
+define('API_TIMEOUT', 15);
 
 // Max CVE results to display
 define('MAX_CVE_RESULTS', 20);
@@ -35,4 +40,7 @@ define('LOG_DIR', __DIR__ . '/../logs/');
 
 // Enable error logging
 define('DEBUG_MODE', true);
+
+// User Agent for API requests
+define('USER_AGENT', 'CheckYourVersion/1.0 (+https://github.com/AnAnalogGuy/checkyourversion)');
 ?>
